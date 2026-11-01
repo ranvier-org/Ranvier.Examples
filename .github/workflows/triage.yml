@@ -1,0 +1,36 @@
+# Calls the shared triage workflow in ranvier-org/.github for every new or reopened issue.
+# Run it by hand from the Actions tab to triage an older issue; manual runs default to a dry run.
+name: Triage
+
+on:
+  issues:
+    types: [opened, reopened]
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: Issue number
+        required: true
+        type: number
+      dry-run:
+        description: Only write the job summary; change nothing on the issue
+        type: boolean
+        default: true
+      force:
+        description: Triage again even if already triaged
+        type: boolean
+        default: false
+
+permissions: {}
+
+jobs:
+  triage:
+    if: github.event_name == 'workflow_dispatch' || github.event.issue.user.type != 'Bot'
+    permissions:
+      issues: write
+    uses: ranvier-org/.github/.github/workflows/triage.yml@main
+    with:
+      issue-number: ${{ github.event.issue.number || inputs.issue }}
+      dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry-run }}
+      force: ${{ github.event_name == 'workflow_dispatch' && inputs.force }}
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
