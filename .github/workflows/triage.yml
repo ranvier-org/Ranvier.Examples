@@ -29,8 +29,9 @@ jobs:
       issues: write
     uses: ranvier-org/.github/.github/workflows/triage.yml@main
     with:
-      issue-number: ${{ github.event.issue.number || inputs.issue }}
-      dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry-run }}
-      force: ${{ github.event_name == 'workflow_dispatch' && inputs.force }}
+      # Dispatch inputs reach a reusable workflow as strings, so convert them to its declared types.
+      issue-number: ${{ fromJSON(format('{0}', github.event.issue.number || inputs.issue)) }}
+      dry-run: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.dry-run) == 'true' }}
+      force: ${{ github.event_name == 'workflow_dispatch' && format('{0}', inputs.force) == 'true' }}
     secrets:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
