@@ -12,6 +12,8 @@
     <Compile Include="Shop.fs" />
     <Compile Include="Recording.fs" />
     <Compile Include="Program.fs" />
-    <ProjectReference Include="../../external/Ranvier/src/Ranvier.Persistence/Ranvier.Persistence.fsproj" />
+    <!-- Ranvier.Persistence left the core repository; the traced build takes the .Traced package family. -->
+    <PackageReference Include="Ranvier.Persistence" Version="$(RanvierPersistenceVersion)" Condition="'$(RanvierTrace)' != 'true'" />
+    <PackageReference Include="Ranvier.Persistence.Traced" Version="$(RanvierPersistenceVersion)" Condition="'$(RanvierTrace)' == 'true'" />
   </ItemGroup>
 </Project>

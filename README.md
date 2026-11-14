@@ -23,7 +23,7 @@ dotnet fsi build.fsx -- test
 
 After an ordinary clone, run `git submodule update --init --recursive`. Open [Ranvier.Examples.slnx](Ranvier.Examples.slnx) in Rider or another .NET IDE.
 
-Ranvier is a source dependency at `external/Ranvier`, pinned to **6066b933bf220027e942751b05474a40d5c0414a**. Projects reference Ranvier, Ranvier.CSharp, Ranvier.Query, Ranvier.Elmish and Ranvier.Persistence directly. No Ranvier package release is required. The first restore needs internet access.
+Ranvier is a source dependency at `external/Ranvier`, pinned to **c1d03ddc6ba0aa2dabbdafd622e22f6d0c60b94c** (Ranvier 0.2.0). Projects reference Ranvier, Ranvier.CSharp, Ranvier.Query and Ranvier.Elmish directly. Ranvier.Persistence has its own repository, so the shop replay restores the `Ranvier.Persistence` package (`Ranvier.Persistence.Traced` in a traced build) at `RanvierPersistenceVersion` in `Directory.Build.props`; it brings the matching published Ranvier packages with it. The first restore needs internet access.
 
 ## Run
 
