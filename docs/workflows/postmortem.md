@@ -6,7 +6,7 @@ Date: 2026-10-19
 
 These were implementation and verification failures in Ranvier.Examples. The confirmed defects did not establish a correctness bug in Ranvier. The dependency stayed pinned to `305d00908d3f7cfbc015bd3df051c650886377dc` and was not modified.
 
-In particular, Ranvier's [threading documentation](../../external/Ranvier/docs/content/guide/threading.md) already distinguishes thread affinity from ambient graph activation. I failed to apply that documented contract correctly. Suggesting an upstream API issue before establishing an upstream defect was an attribution mistake. No Ranvier issue was opened.
+In particular, Ranvier's [threading documentation](repo:core/guide/threading.md) already distinguishes thread affinity from ambient graph activation. I failed to apply that documented contract correctly. Suggesting an upstream API issue before establishing an upstream defect was an attribution mistake. No Ranvier issue was opened.
 
 ## What happened
 
