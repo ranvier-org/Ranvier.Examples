@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "title": "Application workflows",
+  "description": "End-to-end console, desktop, Elmish, and event-sourced workflows built on Ranvier.",
+  "content": "docs",
+  "static": false,
+  "index": "walkthrough.md",
+  "sections": [
+    {
+      "title": "Overview",
+      "items": [
+        "walkthrough.md",
+        "workflows/features.md"
+      ]
+    },
+    {
+      "title": "Workflows",
+      "items": [
+        "workflows/support.md",
+        "workflows/jobs.md",
+        "workflows/data.md",
+        "workflows/elmish.md",
+        "workflows/shop-replay.md"
+      ]
+    },
+    {
+      "title": "Verification & reviews",
+      "items": [
+        "verification.md",
+        "workflows/verification.md",
+        "workflows/correctness-review.md",
+        "workflows/postmortem.md"
+      ]
+    }
+  ]
+}
