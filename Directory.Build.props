@@ -8,7 +8,7 @@
         <Authors>shayanhabibi</Authors>
         <IsPackable>false</IsPackable>
         <NoWarn Condition="'$(MSBuildProjectExtension)' == '.csproj'">$(NoWarn);1591</NoWarn>
-        <RanvierPersistenceVersion>0.1.1</RanvierPersistenceVersion>
+        <RanvierPersistenceVersion>0.1.2</RanvierPersistenceVersion>
     </PropertyGroup>
 
 
